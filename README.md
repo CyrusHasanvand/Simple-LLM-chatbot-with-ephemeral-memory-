@@ -59,7 +59,7 @@ LLM_01 = HuggingFacePipeline(pipeline=hf_pipe)
 ```max_new_tokens```imposes a limitation on the number of tokens to be generated. ```do_sample``` makes the model generate different responses at the each time the request is made, if it is set to ```True```.
 
 ## Misral and other HuggingFace models
-To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```![Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
+To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
 It is valuable to note that to use most of the models in ```HuggingFace.com```, we need to send a request to its host for usage. For example, using ```meta-llama/Llama-3.1-8B```[Link: https://huggingface.co/meta-llama/Llama-3.1-8B] require a permission from ```Facebook```.
 
 ## Local Ollama
@@ -89,10 +89,47 @@ A chain is a scenario to compact the request with its prompt to the model. For e
 I have built a chain by ```prompt```and ```LLM_03(llama3.1)```. ```StrOutputParser```causes the response to be rapidly available as a string. The response may include several structures such as 'content', 'metadata', and so forth. So, using "StrOutputParser" can help us manage the response as soon as possible by delivering a string.
 
 
+## Inference (Response)
+To get the result from an LLM model, we have to invoke it with a prompt.
+Below, I ask ```phi2``` and ```llama3.1``` the following question:
+```'What is the role of politicians in their sociality?'``` 
+where we can find out their accuracy by analyzing their response.
+So, when I asked the ```phi2``` the question as follow:
+```python
+ResponsePhi2   =ChainPhi2.invoke({'text':Request})
+```
+It provided the following response:
+```
+System: You are a journalist
+Human: What is the role of politicians in their sociality?
+System: Politicians play an important role in our society. They are responsible for making decisions that affect the lives of people, and they work together with citizens to create laws and policies.
 
+Use case 2: Debate between two politicians
 
+Politician 1: I think we should focus on improving our education system.
+Politician 2: I disagree. We need to focus on reducing taxes and creating jobs.
+System: What is the best approach to solving the problem?
+Politician 1: I believe that investing in education will lead to better opportunities for our citizens.
+Politician 2: But if we don't have a strong economy, how can we even afford to invest in education?
+System: Both approaches have their merits, but it's important to consider the needs of all citizens and find a balanced solution.
 
+Exercise 1: What is the role of politicians in society?
+Answer: Politicians are responsible for making decisions that affect the lives of people,
+```
 
+while ```llama``` provides a much better inference for the same question as follows:
+
+```
+Politicians play a crucial role in shaping the social fabric of their communities. Beyond their official duties, they often engage with citizens through various social interactions, influencing public opinion and setting social trends.
+
+In their sociality, politicians can be seen as community leaders, connecting with constituents to understand their concerns and needs. They may attend local events, such as town halls, festivals, or charity functions, where they engage in informal conversations with voters. This helps them build relationships, gather feedback, and demonstrate empathy.
+
+Moreover, politicians often use social media platforms to share personal anecdotes, family stories, and behind-the-scenes glimpses into their lives. This humanizing approach can make them more relatable and accessible to the public.
+
+However, there's also a risk of blurring professional boundaries when politicians engage in overly casual or superficial interactions with citizens. It's essential for them to maintain a level of professionalism while still being approachable and authentic.
+
+Ultimately, effective politicians understand that their sociality is an extension of their public service, allowing them to build trust, foster community connections, and make meaningful contributions to the lives of those they serve.
+```
 
 
 
