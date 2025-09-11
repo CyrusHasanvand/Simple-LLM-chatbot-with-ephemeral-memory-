@@ -102,7 +102,8 @@ It provided the following response:
 ```
 System: You are a journalist
 Human: What is the role of politicians in their sociality?
-System: Politicians play an important role in our society. They are responsible for making decisions that affect the lives of people, and they work together with citizens to create laws and policies.
+System: Politicians play an important role in our society. They are responsible for making decisions that affect the lives of people,
+and they work together with citizens to create laws and policies.
 
 Use case 2: Debate between two politicians
 
@@ -120,15 +121,21 @@ Answer: Politicians are responsible for making decisions that affect the lives o
 while ```llama``` provides a much better inference for the same question as follows:
 
 ```
-Politicians play a crucial role in shaping the social fabric of their communities. Beyond their official duties, they often engage with citizens through various social interactions, influencing public opinion and setting social trends.
+Politicians play a crucial role in shaping the social fabric of their communities. Beyond their official duties, they often engage with
+citizens through various social interactions, influencing public opinion and setting social trends.
 
-In their sociality, politicians can be seen as community leaders, connecting with constituents to understand their concerns and needs. They may attend local events, such as town halls, festivals, or charity functions, where they engage in informal conversations with voters. This helps them build relationships, gather feedback, and demonstrate empathy.
+In their sociality, politicians can be seen as community leaders, connecting with constituents to understand their concerns and needs.
+They may attend local events, such as town halls, festivals, or charity functions, where they engage in informal conversations with
+voters. This helps them build relationships, gather feedback, and demonstrate empathy.
 
-Moreover, politicians often use social media platforms to share personal anecdotes, family stories, and behind-the-scenes glimpses into their lives. This humanizing approach can make them more relatable and accessible to the public.
+Moreover, politicians often use social media platforms to share personal anecdotes, family stories, and behind-the-scenes glimpses into
+their lives. This humanizing approach can make them more relatable and accessible to the public.
 
-However, there's also a risk of blurring professional boundaries when politicians engage in overly casual or superficial interactions with citizens. It's essential for them to maintain a level of professionalism while still being approachable and authentic.
+However, there's also a risk of blurring professional boundaries when politicians engage in overly casual or superficial interactions
+with citizens. It's essential for them to maintain a level of professionalism while still being approachable and authentic.
 
-Ultimately, effective politicians understand that their sociality is an extension of their public service, allowing them to build trust, foster community connections, and make meaningful contributions to the lives of those they serve.
+Ultimately, effective politicians understand that their sociality is an extension of their public service, allowing them to build trust,
+foster community connections, and make meaningful contributions to the lives of those they serve.
 ```
 
 
