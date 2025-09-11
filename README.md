@@ -59,7 +59,7 @@ LLM_01 = HuggingFacePipeline(pipeline=hf_pipe)
 ```max_new_tokens```imposes a limitation on the number of tokens to be generated. ```do_sample``` makes the model generate different responses at the each time the request is made, if it is set to ```True```.
 
 ## Misral and other HuggingFace models
-To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
+To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```![Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
 It is valuable to note that to use most of the models in ```HuggingFace.com```, we need to send a request to its host for usage. For example, using ```meta-llama/Llama-3.1-8B```[Link: https://huggingface.co/meta-llama/Llama-3.1-8B] require a permission from ```Facebook```.
 
 ## Local Ollama
