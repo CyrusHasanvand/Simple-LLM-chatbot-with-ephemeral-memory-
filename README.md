@@ -119,6 +119,9 @@ Answer: Politicians are responsible for making decisions that affect the lives o
 ```
 
 while ```llama``` provides a much better inference for the same question as follows:
+```python
+ResponseLLama31=ChainLLama31.invoke({'text':Request})
+```
 
 ```
 Politicians play a crucial role in shaping the social fabric of their communities. Beyond their official duties, they often engage with
