@@ -59,13 +59,52 @@ LLM_01 = HuggingFacePipeline(pipeline=hf_pipe)
 ```max_new_tokens```imposes a limitation on the number of tokens to be generated. ```do_sample``` makes the model generate different responses at the each time the request is made, if it is set to ```True```.
 
 ## Misral and other HuggingFace models
-To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link][https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
-It is valuable to note that to use most of the models in ```HuggingFace.com```, we need to send a request to its host for usage. For example, using ```meta-llama/Llama-3.1-8B```[Link][https://huggingface.co/meta-llama/Llama-3.1-8B] require a permission from ```Facebook```.
+To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
+It is valuable to note that to use most of the models in ```HuggingFace.com```, we need to send a request to its host for usage. For example, using ```meta-llama/Llama-3.1-8B```[Link: https://huggingface.co/meta-llama/Llama-3.1-8B] require a permission from ```Facebook```.
 
 ## Local Ollama
+To call our local ollama model, we can simply use
+```python
+LLM_03 = ChatOllama(model="llama3.1", Temperature=0.7)
+```
+where ```Temperature``` sets the accuracy of the response.
+
+So, we define our models, and in the next sections, we develop our Chatbots.
+# LLL Inference
+Before we get a response from the models, we have to standardize our request in a way that clearly express our request. Thus, we need to define a ```prompt``` so as to request our appeal in a better way.
+## Prompt
+Consider the following prompot that I have prepared for my local 'llama3.1':
+```python
+prompt=ChatPromptTemplate.from_messages([
+    ('system','You are a journalist, and should manage your comprehensive response up to 210 words without error'),
+    ('user','{text}')
+])
+```
+I use ```system``` to indicate the role of the model, which is a "journalist" here, and ```user``` to address the request from a client.
+Although there would be a lot of request in a chat, to show how it works, I have highlighted a single request as a query like of ```'What is the role of politicians in their sociality?'``` to ask the model in advance.
+
+## Chain
+A chain is a scenario to compact the request with its prompt to the model. For example in
+```ChainLLama31=prompt|LLM_03|StrOutputParser()```
+I have built a chain by ```prompt```and ```LLM_03(llama3.1)```. ```StrOutputParser```causes the response to be rapidly available as a string. The response may include several structures such as 'content', 'metadata', and so forth. So, using "StrOutputParser" can help us manage the response as soon as possible by delivering a string.
 
 
 
-Meanwhile, I will show you how you can import your own local Ollama alongside ```phi-2```.
 
-Below, I import packages. Because I work on a local model, I need pipeline to wrap this local model for further consideration. Therefore, I need an autotokenizer and an AutoModelForCasualLM.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
