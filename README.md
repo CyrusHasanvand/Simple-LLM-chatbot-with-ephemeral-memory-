@@ -24,7 +24,46 @@ from langchain_huggingface import HuggingFacePipeline
 from langchain.schema import SystemMessage, HumanMessage, AIMessage, StrOutputParser
 from langchain_ollama import ChatOllama
 ```
-where we use ```prompt``` to address our request in an explicit and accurate way. ```Transformers``` allows us to wrap the model. ```schema``` lets us to distinguish the reqeusts and responses. ```ChatOllama``` is the main package to use for chat with our local model, which is stored on our laptop, for instance.
+where we use ```prompt``` to address our request in an explicit and accurate way. ```Transformers``` allows us to wrap the model. ```schema``` lets us distinguish the requests and responses. ```ChatOllama``` is the main package to use for chat with our local model, which is stored on our laptop, for instance.
+
+If your laptop doesn't have a strong GPU or generally has no GPU on your system, you can use CPU to run the code.
+To check it, you can use the following code:
+```python
+import torch
+device = 0 if torch.cuda.is_available() else -1
+```
+
+## Microsoft/Phi
+To import the ```phi``` model
+```python
+model_id = "microsoft/phi-2"
+tokenizer = AutoTokenizer.from_pretrained(model_id)
+model = AutoModelForCausalLM.from_pretrained(model_id)
+```
+If you use this code for the first time, your system tries to download the model from ```HuggingFace```.
+In the next step, we wrap the model with ```pipeline``` as follows:
+```python
+hf_pipe = pipeline(
+    "text-generation",          
+    model=model,               
+    tokenizer=tokenizer,       
+    max_new_tokens=200,       
+    do_sample=True,           
+    temperature=0.7,         
+    pad_token_id=tokenizer.eos_token_id,  
+    device=device               # CPU or GPU
+)
+LLM_01 = HuggingFacePipeline(pipeline=hf_pipe)
+```
+```text-generation``` is the main role for this LLM. Accordingly, we can define different rules such as "summarizing", "sentiment", or "chat" to indicate the role of the mode. It worths to note that, each model may have its crucial demand. For example, we are unable to use ```phi2``` for chat or an important role. This is because it is a small model that couldn't do some tasks or introduce significant information.
+```max_new_tokens```imposes a limitation on the number of tokens to be generated. ```do_sample``` makes the model generate different responses at the each time the request is made, if it is set to ```True```.
+
+## Misral and other HuggingFace models
+To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link][https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
+It is valuable to note that to use most of the models in ```HuggingFace.com```, we need to send a request to its host for usage. For example, using ```meta-llama/Llama-3.1-8B```[Link][https://huggingface.co/meta-llama/Llama-3.1-8B] require a permission from ```Facebook```.
+
+## Local Ollama
+
 
 
 Meanwhile, I will show you how you can import your own local Ollama alongside ```phi-2```.
