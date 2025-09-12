@@ -85,7 +85,7 @@ Although there would be a lot of request in a chat, to show how it works, I have
 
 ## Chain
 A chain is a scenario to compact the request with its prompt to the model. For example in
-```ChainLLama31=prompt|LLM_03|StrOutputParser()```
+```python ChainLLama31=prompt|LLM_03|StrOutputParser()```
 I have built a chain by ```prompt```and ```LLM_03(llama3.1)```. ```StrOutputParser```causes the response to be rapidly available as a string. The response may include several structures such as 'content', 'metadata', and so forth. So, using "StrOutputParser" can help us manage the response as soon as possible by delivering a string.
 
 
