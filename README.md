@@ -56,7 +56,7 @@ hf_pipe = pipeline(
 LLM_01 = HuggingFacePipeline(pipeline=hf_pipe)
 ```
 ```text-generation``` is the main role for this LLM. Accordingly, we can define different rules such as "summarizing", "sentiment", or "chat" to indicate the role of the mode. It worths to note that, each model may have its crucial demand. For example, we are unable to use ```phi2``` for chat or an important role. This is because it is a small model that couldn't do some tasks or introduce significant information.
-```max_new_tokens```imposes a limitation on the number of tokens to be generated. ```do_sample``` makes the model generate different responses at the each time the request is made, if it is set to ```True```.
+```max_new_tokens```imposes a limitation on the number of tokens to be generated. As you may know, ```token``` has a different meaning rather than ```word```. I mean, the number of ```tokens``` is not equal to the number of ```words```. If you didn't know this, please search their difference in Google. ```do_sample``` makes the model generate different responses at each time the request is made, if it is set to ```True```.
 
 ## Misral and other HuggingFace models
 To use other models from HuggingFace, we can simply address their links by their specific names like ```mistralai/Mistral-7B-v0.1```[Link: https://huggingface.co/mistralai/Mistral-7B-v0.1] for 7B Mistral model, accordingly, all other thing is the same as the previous section for ```phi2```.
