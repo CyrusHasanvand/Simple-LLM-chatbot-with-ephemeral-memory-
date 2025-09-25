@@ -94,7 +94,9 @@ I have built a chain by ```prompt```and ```LLM_03(llama3.1)```. ```StrOutputPars
 ## Inference (Response)
 To get the result from an LLM model, we have to invoke it with a prompt.
 Below, I ask ```phi2``` and ```llama3.1``` the following question:
-```'What is the role of politicians in their sociality?'``` 
+```python
+'What is the role of politicians in their sociality?'
+``` 
 where we can find out their accuracy by analyzing their response.
 So, when I asked the ```phi2``` the question as follow:
 ```python
