@@ -70,7 +70,7 @@ LLM_03 = ChatOllama(model="llama3.1", Temperature=0.7)
 where ```Temperature``` sets the accuracy of the response.
 
 So, we define our models, and in the next sections, we develop our Chatbots.
-# LLL Inference
+# LLM Inference
 Before we get a response from the models, we have to standardize our request in a way that clearly express our request. Thus, we need to define a ```prompt``` so as to request our appeal in a better way.
 ## Prompt
 Consider the following prompot that I have prepared for my local 'llama3.1':
